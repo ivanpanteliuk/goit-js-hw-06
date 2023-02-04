@@ -10,10 +10,13 @@ const refs = {
   destroyBtn: document.querySelector('[data-destroy]'),
   input: document.querySelector('#controls input')
 }
-const boxesMarkup = []
+
+refs.createBtn.addEventListener('click', createBoxes);
+refs.destroyBtn.addEventListener('click', destroyBoxes);
 
 function createBoxes(amount) {
   amount = Number(refs.input.value)
+  const boxesMarkup = [];
   for (let i = 1; i <= amount; i += 1) {
     const boxEl = document.createElement('div');
     boxEl.style.width = 30 + 10 * (i - 1) + 'px';
@@ -28,6 +31,3 @@ function destroyBoxes () {
   refs.boxes.innerHTML = '';
   refs.input.value = '';
 }
-
-refs.createBtn.addEventListener('click', createBoxes);
-refs.destroyBtn.addEventListener('click', destroyBoxes);
